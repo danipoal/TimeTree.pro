@@ -1,37 +1,29 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client'; // Importa desde 'react-dom/client'
+import './index.css';
+import App from './App';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   useLocation,
 } from "react-router-dom";
-import Home from "./pages/Home";
 
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-    <React.StrictMode>
-      <Router>
-        <ScrollToTop />
-        <Routes>
-        <Route index element={<Home />} />
+  // Usa createRoot en lugar de ReactDOM.render
+  const root = ReactDOM.createRoot(rootElement);
 
-        </Routes>
+  root.render(
+    <React.StrictMode>
+        <Router>
+          <Routes>
+            <Route index element={<App />} />
+          </Routes>
       </Router>
     </React.StrictMode>
   );
 } else {
-  console.error("No se pudo encontrar el elemento raíz en el DOM");
+  console.error("No se encontró el elemento raíz en el DOM");
 }
