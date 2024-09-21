@@ -8,6 +8,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import TestDashboard from './pages/TestDashboard';
 
 const rootElement = document.getElementById('root');
 
@@ -20,6 +21,7 @@ if (rootElement) {
         <Router>
           <Routes>
             <Route index element={<App />} />
+            <Route path='dash' element={<TestDashboard />} />
           </Routes>
       </Router>
     </React.StrictMode>
